@@ -1,4 +1,4 @@
-# Diploma Generator#
+# Diploma Generator #
 
 ## О программе ##
 
