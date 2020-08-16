@@ -1,4 +1,4 @@
-# Diploma Generator ![](res/logo64x64.ico) #
+# ![](res/logo64x64.ico) Diploma Generator  #
 
 ## О программе ##
 
