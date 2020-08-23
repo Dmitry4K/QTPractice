@@ -18,6 +18,7 @@ class Widget : public QWidget
     QColorDialog ColorDialog;
     QFileDialog FileDialog;
     QFileIconProvider FileIconProvider;
+    QList<QUrl> BackUrls;
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();

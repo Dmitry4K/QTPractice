@@ -43,7 +43,7 @@ void Widget::on_pushButton_preview_clicked()
     }
     QString result_name = "preview";
     int error = 0;
-    if(!GenerateDiploma(background, text, x, y, color, font,folder, result_name, &error)){
+    if(!GenerateDiploma(BackUrls, text, x, y, color, font,folder, result_name, &error)){
         QString er("error : ");
         er += erToString(error);
         ui->label_preview->setText(er);
@@ -94,9 +94,14 @@ void Widget::on_checkBox_y_toggled(bool checked)
 
 void Widget::on_pushButton_getback_clicked()
 {
-    auto Url = FileDialog.getOpenFileUrl(this, tr("Select Images"), QUrl(), tr("Images (*.png *.xpm *.jpg)"));
-    if(!Url.isEmpty()){
-        ui->lineEdit_backimage->setText(Url.toString(QUrl::RemoveScheme|QUrl::PreferLocalFile));
+    auto Urls = FileDialog.getOpenFileUrls(this, tr("Select Images"), QUrl(), tr("Images (*.png *.xpm *.jpg)"));
+    if(!Urls.isEmpty()){
+        QString urls = Urls.at(0).toString(QUrl::RemoveScheme|QUrl::PreferLocalFile);
+        for(int i = 1;i<Urls.size();++i){
+               urls += ' ' + Urls.at(i).toString(QUrl::RemoveScheme|QUrl::PreferLocalFile);
+        }
+        ui->lineEdit_backimage->setText(urls);
+        BackUrls = Urls;
     }
 }
 
@@ -142,8 +147,6 @@ void Widget::on_pushButton_generate_clicked()
 {
     ui->pushButton_preview->setEnabled(false);
     ui->pushButton_generate->setEnabled(false);
-
-    auto background = ui->lineEdit_backimage->text();
     auto folder = ui->lineEdit_folder->text();
     auto x = ui->spinBox_x->value();
     auto y = ui->spinBox_y->value();
@@ -151,7 +154,7 @@ void Widget::on_pushButton_generate_clicked()
     auto font = FontDialog.currentFont();
     auto names = ui->lineEdit_names->text();
 
-    if(background.isEmpty()){
+    if(BackUrls.isEmpty()){
         QMessageBox er;
         er.setText("Choose background image!");
         er.exec();
@@ -184,7 +187,7 @@ void Widget::on_pushButton_generate_clicked()
     int i = 0;
     QString text;
     while(getLine(file, text)){
-        if(GenerateDiploma(background, text, x, y, color, font,folder, result_name+QString::number(i), &error)){
+        if(GenerateDiploma(BackUrls, text, x, y, color, font,folder, result_name+QString::number(i), &error)){
             ++count;
         }
         text.clear();

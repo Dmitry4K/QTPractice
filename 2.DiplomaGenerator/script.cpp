@@ -4,9 +4,13 @@
 #include<QRect>
 #include<QTextDecoder>
 #include<QTextCodec>
+#include <QRandomGenerator>
+#include <QTime>
 
-bool GenerateDiploma(const QString& background, const QString& text, int x, int y, const QColor& color, const QFont& font,const QString& folder, const QString& result_name, int* error){
-    QImage image(background);
+bool GenerateDiploma(const QList<QUrl>& backgrounds, const QString& text, int x, int y, const QColor& color, const QFont& font,const QString& folder, const QString& result_name, int* error){
+    QRandomGenerator rg;
+    rg.seed(QTime::currentTime().msec());
+    QImage image(backgrounds.at(rg.bounded(backgrounds.size())).toString(QUrl::RemoveScheme|QUrl::PreferLocalFile));
     if(image.isNull()){
         *error = IMAGE_OPENENING_ERROR;
         return false;
