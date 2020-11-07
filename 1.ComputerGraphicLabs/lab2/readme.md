@@ -63,6 +63,6 @@ void CuboidClass::calculatePolygons() {
 
 ```c++
     ...
-    void calculatePolygons() override;
+    scene.addFigure(new CuboidClass(80, 120, 100));
     ...
 ```
