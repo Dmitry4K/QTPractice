@@ -48,7 +48,7 @@ _CuboidClass.h_
 _CuboidClass.cpp_
 ```c++
 ...
-    void CuboidClass::calculatePolygons() {
+void CuboidClass::calculatePolygons() {
         addPolygon(new RectPolygon3D(points[0], points[1], points[2], points[3]));
         addPolygon(new RectPolygon3D(points[2], points[6], points[7], points[3]));
         addPolygon(new RectPolygon3D(points[7], points[6], points[5], points[4]));
