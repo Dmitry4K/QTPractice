@@ -31,13 +31,13 @@ _widget3d.h/.cpp_ – виджет, на который происходит о�
 
 ### Как создать свою фигуру
 
-1. Создать класс и наследоваться от AbstractPainting3D
+## 1. Создать класс и наследоваться от AbstractPainting3D
 
 ```c++
 class CuboidClass : public AbstractPaintitng3D
 ```
 
-2. Перегрузить метод calculatePolygons()
+## 2. Перегрузить метод calculatePolygons()
 
 _CuboidClass.h_
 ```c++
@@ -59,7 +59,7 @@ void CuboidClass::calculatePolygons() {
 ...
 ```
 
-3. Добавить фигуру в SceneModifier
+## 3. Добавить фигуру в SceneModifier
 
 ```c++
 ...
