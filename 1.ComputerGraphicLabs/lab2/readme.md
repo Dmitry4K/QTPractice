@@ -37,7 +37,20 @@ _widget3d.h/.cpp_ – виджет, на который происходит о�
 class CuboidClass : public AbstractPaintitng3D
 ```
 
-2. Перегрузить метод paint()
+2. Перегрузить метод calculatePolygons()
+
+_CuboidClass.h_
+```c++
+    ...
+    void calculatePolygons() override;
+    ...
+```
+_CuboidClass.cpp_
+```c++
+    ...
+    void calculatePolygons() override;
+    ...
+```
 
 3. Добавить фигуру в SceneModifier
 
