@@ -47,10 +47,22 @@ _CuboidClass.h_
 ```
 _CuboidClass.cpp_
 ```c++
-    ...
-    void calculatePolygons() override;
-    ...
+...
+    void CuboidClass::calculatePolygons() {
+        addPolygon(new RectPolygon3D(points[0], points[1], points[2], points[3]));
+        addPolygon(new RectPolygon3D(points[2], points[6], points[7], points[3]));
+        addPolygon(new RectPolygon3D(points[7], points[6], points[5], points[4]));
+        addPolygon(new RectPolygon3D(points[0], points[4], points[5], points[1]));
+        addPolygon(new RectPolygon3D(points[1], points[5], points[6], points[2]));
+        addPolygon(new RectPolygon3D(points[0], points[3], points[7], points[4]))
+}
+...
 ```
 
 3. Добавить фигуру в SceneModifier
 
+```c++
+    ...
+    void calculatePolygons() override;
+    ...
+```
