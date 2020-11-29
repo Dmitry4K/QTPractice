@@ -22,6 +22,29 @@
 
 У spinewidget который наследован от QWidget переопределено несколько функций отвечающих за взаимодействие виджета с пользователем : ```mousePressEvent(QMouseEvent* e)```, ```mouseMoveEvent(QMouseEvent* e)```, ```mouseReleaseEvent(QMouseEvent* e)```. С помощью этих событий осуществляется общение программы и пользователя, например: можно добавить точку сплайна нажатием на виджет, перенести ее или полностью очистить виджет нажатием на Delete
 
+_Пример реализации события нажатия на виджет_
+
+```c++
+void SplineWidget::mousePressEvent(QMouseEvent* e){
+    if(e->buttons()  == Qt::LeftButton){
+        if(!spline.add(QPointF(centrizePointCord(cordsOnCenter(e->pos()))))){
+            selectedPoint = spline.findPointOrRail(centrizePointCord(cordsOnCenter(e->pos())));
+            if(selectedPoint != spline.getPoints().end()){
+                isSelected = true;
+                if(!isCatch(selectedPoint->getRail().x()+selectedPoint->x(),
+                           selectedPoint->getRail().y()+selectedPoint->y(),
+                           centrizePointCord(cordsOnCenter(e->pos())).x(),
+                           centrizePointCord(cordsOnCenter(e->pos())).y())){
+                    isRailSelected = false;
+                } else {
+                    isRailSelected = true;
+                }
+            }
+        }
+    }
+}
+```
+
 #### Вычисления cплайна
 
 Вычисление сплайна возможно только тогда, когда известны все три точки сплайна и две производные на его концах, тогда вызывается метод, в котором запрограммировано решение системы уравнений.
