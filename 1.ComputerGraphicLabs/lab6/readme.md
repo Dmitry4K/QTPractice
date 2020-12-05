@@ -2,4 +2,4 @@
 
 ### GIF
 
-!()[lab6.gif]
+![](lab6.gif)
