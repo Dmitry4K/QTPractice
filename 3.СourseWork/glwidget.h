@@ -12,9 +12,6 @@ public:
     void initializeGL() override;
     void resizeGL(int nWidth, int nHeight) override;
     void paintGL() override;
-    void scene();
-    void read(int a);
-    void cuboid();
 };
 
 #endif // GLWIDGET_H
