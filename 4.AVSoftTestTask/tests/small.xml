@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<departments>
+	<department name="Дизайнерский отдел">
+		<employments>
+			<employment>
+				<surname>Аксенов</surname>
+				<name>Алексей</name>
+				<middleName>Геннадьевич</middleName>
+				<function>Художник</function>
+				<salary>50000</salary>
+			</employment>
+			<employment>
+				<surname>Аксенов</surname>
+				<name>Дмитрий</name>
+				<middleName>Викторович</middleName>
+				<function>Дизайнер интерфейса</function>
+				<salary>45000</salary>
+			</employment>
+		</employments>
+	</department>
+	<department name="WEB разработка">
+		<employments>
+			<employment>
+				<surname>Григорьев</surname>
+				<name>Павел</name>
+				<middleName>Владимирович</middleName>
+				<function>Программист БД</function>
+				<salary>60000</salary>
+			</employment>
+			<employment>
+				<surname>Данилов</surname>
+				<name>Николай</name>
+				<middleName>Валентинович</middleName>
+				<function>Администратор сайта</function>
+				<salary>50000</salary>
+			</employment>
+		</employments>
+	</department>
+	<department name="Системное программирование">
+		<employments>
+			<employment>
+				<surname>Васильев</surname>
+				<name>Максим</name>
+				<middleName>Викторович</middleName>
+				<function>Руководитель отдела</function>
+				<salary>100000</salary>
+			</employment>
+			<employment>
+				<surname>Дюков</surname>
+				<name>Владимир</name>
+				<middleName>Евгеньевич</middleName>
+				<function>Системный программист Linux</function>
+				<salary>50000</salary>
+			</employment>
+			<employment>
+				<surname>Емельянов</surname>
+				<name>Дмитрий</name>
+				<middleName>Юрьевич</middleName>
+				<function>Системный программист Linux</function>
+				<salary>50000</salary>
+			</employment>
+		</employments>
+	</department>
+</departments>
